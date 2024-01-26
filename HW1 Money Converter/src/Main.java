@@ -35,7 +35,7 @@ public class Main {
             // Adds the values back together as a dollar value to make sure it has the correct total
             double total = ((nickel * 5) + (dime * 10) + (quart * 25) + penny) / (double) 100;
             // Print statements to show answer
-            System.out.print(quart + " quarters, " + dime + " dimes, " + nickel + " nickels, and " + penny + " pennies" + " = $" + total);
+            System.out.println(quart + " quarters, " + dime + " dimes, " + nickel + " nickels, and " + penny + " pennies" + " = $" + total);
     }}
 }
 
