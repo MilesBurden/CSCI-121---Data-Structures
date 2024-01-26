@@ -10,10 +10,11 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        // While loop to keep it running until manually closed
         while(true){
             // Starts user with a dollar sign to make sure user doesn't input it
             System.out.print("Input: $");
-            // Scanners to
+            // Scanners to take an input
             Scanner sc = new Scanner(System.in);
             int money = 0;
             // Try - Catch to make sure the input is a valid double, if not prints error and restarts
@@ -24,8 +25,8 @@ public class Main {
                 System.out.println("Invalid input, please try again");
                 continue;
             }
-            // These all take the base input, 'money'
-            // then take the mod of all previous coin values from it, in descending order of value, then divides it by the current coin value
+            // In order to calculate each coin value, we take the base input money as an int (double multiplied by 100 for a cents value),
+            // We then take the mod of any previous coin values in descending order before dividing the result by the current coin value (it makes more sense as a written equation)
             // penny does not divide by 1 because that would be redundant
             int quart = money / 25;
             int dime = (money % 25) / 10;
