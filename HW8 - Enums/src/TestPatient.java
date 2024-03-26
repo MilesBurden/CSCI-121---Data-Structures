@@ -4,8 +4,10 @@ public class TestPatient {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        //sets a default patient with no edits
         Patient patient1 = new Patient();
 
+        //gets inputs for patient 2
         System.out.println("Input patient ID");
         String id1 = sc.nextLine();
         System.out.println("Input patient age");
@@ -23,6 +25,7 @@ public class TestPatient {
             System.out.println("Invalid inputs");
         }
 
+        //gets inputs for patient 3
         int id2 = 0;
         int age2 = 0;
         try {
@@ -38,6 +41,7 @@ public class TestPatient {
 
         Patient patient3 = new Patient(id2, age2, blood2.getType(), blood2.getFactor());
 
+        //prints out patient 1, 2, and 3
         System.out.println("Patient 1");
         System.out.print("ID: " + patient1.id);
         System.out.print(", age: " + patient1.age);

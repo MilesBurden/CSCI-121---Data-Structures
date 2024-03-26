@@ -2,6 +2,7 @@ public class BloodData {
     public String bloodType;
     public String bloodFactor;
 
+    //enum with each blood type
     public enum BloodGroup{
         A("+", "-"), B("+", "-"), AB("+", "-"), O("+", "-");
         private final String positive;
@@ -14,13 +15,16 @@ public class BloodData {
         public String negative() {return negative;}
     }
 
+    //default constructor
     public BloodData(){
         bloodType = BloodGroup.O.name();
         bloodFactor = BloodGroup.O.positive;
     }
 
+    //overload constructor
     public BloodData(String type, String factor){
         bloodType = BloodGroup.valueOf(type).name();
+        //switch statement checks for negative factor input, defaults to positive
         switch(factor){
             case "-":
                 bloodFactor = BloodGroup.valueOf(type).negative;
@@ -31,6 +35,7 @@ public class BloodData {
         }
     }
 
+    //set and get methods
     public void setType(String type){
         bloodType = type;
     }
