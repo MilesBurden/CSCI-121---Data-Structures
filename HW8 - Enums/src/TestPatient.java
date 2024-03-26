@@ -7,25 +7,34 @@ public class TestPatient {
         Patient patient1 = new Patient();
 
         System.out.println("Input patient ID");
-        int id1 = sc.nextInt();
+        String id1 = sc.nextLine();
         System.out.println("Input patient age");
-        int age1 = sc.nextInt();
+        String age1 = sc.nextLine();
         System.out.println("Input patient blood type");
-        String a = sc.nextLine();
         String type = sc.nextLine();
         System.out.println("Input patient blood Rh factor");
         String factor = sc.nextLine();
         System.out.println("=======================");
 
-        Patient patient2 = new Patient(id1, age1, type, factor);
+        Patient patient2 = null;
+        try {
+            patient2 = new Patient(Integer.valueOf(id1), Integer.valueOf(age1), type, factor);
+        } catch (Exception e) {
+            System.out.println("Invalid inputs");
+        }
 
-
-        System.out.println("Input patient ID");
-        int id2 = sc.nextInt();
-        System.out.println("Input patient age");
-        int age2 = sc.nextInt();
+        int id2 = 0;
+        int age2 = 0;
+        try {
+            System.out.println("Input patient ID");
+            id2 = sc.nextInt();
+            System.out.println("Input patient age");
+            age2 = sc.nextInt();
+            System.out.println("=======================");
+        } catch (Exception e) {
+            System.out.println("Invalid inputs");
+        }
         BloodData blood2 = new BloodData();
-        System.out.println("=======================");
 
         Patient patient3 = new Patient(id2, age2, blood2.getType(), blood2.getFactor());
 
