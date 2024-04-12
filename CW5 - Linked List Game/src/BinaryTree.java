@@ -18,9 +18,9 @@ class BinaryTree {
 
     private TreeNode insertRecursive(TreeNode node, String val, String q, String a, String val2) {
         //Take node, comp answer, distinguishing question, answer to question, and human answer
-        //Find the node where val = val
-        //make child nodes with both answers by question answer
-        //replace current node with question
+        //Find the node where node val = val
+        //make child nodes with both answers w/ left and right determined by question answer
+        //replace current node val with question
         try {
             if (Objects.equals(val, node.val)) {
                 if (Objects.equals(a, "y")) {
@@ -31,11 +31,13 @@ class BinaryTree {
                     node.right = new TreeNode(val2);
                 }
                 node.val = q;
+                //if not the same, recurses down the tree to find the correct node
             } else {
                 node.left = insertRecursive(node.left, val, q, a, val2);
                 node.right = insertRecursive(node.right, val, q, a, val2);
             }
             return node;
+            //try/catch for when you reach an incorrect leaf node
         }catch (NullPointerException e){
             return node;
         }
@@ -46,13 +48,13 @@ class BinaryTree {
         if (root == null)
             return;
 
-        // First print data of node
+        //First print data of node
         System.out.print(root.val + " ");
 
-        // Then recur on left subtree
+        //Then recurse on left node
         preOrderTraversal(root.left);
 
-        // Now recur on right subtree
+        //Now recurse on right node
         preOrderTraversal(root.right);
     }
 
@@ -61,13 +63,13 @@ class BinaryTree {
         if (root == null)
             return;
 
-        // First recur on left child
+        //First recurse on left child
         inOrderTraversal(root.left);
 
-        // Then print the data of node
+        //Then print the data of node
         System.out.print(root.val + " ");
 
-        // Now recur on right child
+        //Now recurse on right child
         inOrderTraversal(root.right);
     }
 
@@ -76,13 +78,13 @@ class BinaryTree {
         if (root == null)
             return;
 
-        // First recur on left subtree
+        //First recurse on left node
         postOrderTraversal(root.left);
 
-        // Then recur on right subtree
+        //Then recurse on right node
         postOrderTraversal(root.right);
 
-        // Now deal with the node
+        //Now deal with the node
         System.out.print(root.val + " ");
     }
 }

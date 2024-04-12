@@ -11,9 +11,11 @@ public class Main {
         String val2;
         TreeNode node = tree.root;
 
+        //while loop to run until stopped
         while(true) {
-            //tree.inOrderTraversal(tree.root);
+            //if statement checks if node is leaf or not
             if(node.left == null) {
+                //if it is, it asks if the objeect is correct, if so allows user to play again
                 System.out.print("Is your object: " + node.val + "  y/n: ");
                 if (Objects.equals(sc.next(), "y")) {
                     System.out.println("Hooray, I got it right");
@@ -22,6 +24,7 @@ public class Main {
                         break;
                     }
                 }
+                //if not, asks for the correct object, and a distinguishing question, and the answer for that question, see BinaryTree class for how this is added to the tree
                 else {
                     System.out.print("What was your object?:  ");
                     sc.nextLine();
@@ -32,9 +35,11 @@ public class Main {
                     a = sc.nextLine();
                     tree.insert(node.val, q, a, val2);
                 }
+                //nicer layout
                 System.out.println("=================================================");
                 node = tree.root;
             }
+            //if node is not leaf, asks the question of the node, answer of y goes left, anything else goes right
             else{
                 System.out.print(node.val + " y/n: ");
                 if(Objects.equals(sc.next(), "y")){
